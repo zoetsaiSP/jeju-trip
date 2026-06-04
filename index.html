@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>濟州廖理好海橘 🍊 (廖理寶寶似顏繪版)</title>
+    <title>濟州廖理好海橘 🍊 (媽媽吃飽飽+日出峰夕陽版)</title>
     <!-- 引入 FontAwesome 圖標 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- 引入 繁體中文 Google 字型 -->
@@ -30,100 +30,66 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans TC', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--chictrip-bg); color: var(--text-main); padding-bottom: 60px; }
         
-        /* 頁首與寶寶似顏繪區塊 */
+        /* 頁首與寶寶真人照片貼紙區塊 */
         header { background-color: var(--card-bg); padding: 16px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
         .header-content { display: flex; align-items: center; justify-content: center; gap: 14px; max-width: 500px; margin: 0 auto; }
         .header-text { text-align: left; }
         header h1 { font-size: 20px; font-weight: 700; color: var(--text-main); line-height: 1.2; }
         header p { font-size: 12px; color: var(--text-sub); margin-top: 4px; }
         
-        /* --- 廖理寶寶純 CSS 似顏繪貼圖貼紙 (參考 image_4f4479.png) --- */
-        .baby-avatar-sticker {
+        /* --- 廖理寶寶照片去背貼紙外框 (融合濟州橘子意象) --- */
+        .baby-photo-sticker {
             position: relative;
-            width: 65px;
-            height: 65px;
-            background: #FF9F1C; /* 橘子基底 */
+            width: 70px;
+            height: 70px;
+            background: #FF9F1C; 
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12), inset 0 -4px 0 rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             flex-shrink: 0;
-            border: 3px solid #FFF; /* 貼紙白邊感 */
+            border: 3px solid #FFF; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: visible; 
         }
-        /* 橘子葉子與梗 */
-        .baby-avatar-sticker::before {
+        /* 橘子梗與綠葉 */
+        .baby-photo-sticker::before {
             content: '';
             position: absolute;
-            top: -6px; left: 32px;
-            width: 4px; height: 10px;
+            top: -6px; left: 35px;
+            width: 4px; height: 12px;
             background: #6D4C41;
             border-radius: 2px;
             transform: rotate(10deg);
+            z-index: 2;
         }
-        .baby-avatar-sticker::after {
+        .baby-photo-sticker::after {
             content: '';
             position: absolute;
             top: -10px; left: 16px;
-            width: 18px; height: 10px;
+            width: 20px; height: 11px;
             background: #4CAF50;
             border-radius: 12px 2px 12px 2px;
             transform: rotate(-15deg);
+            z-index: 2;
         }
-        /* 寶寶臉部 */
-        .baby-face {
-            position: absolute;
-            top: 14px; left: 8px;
-            width: 46px; height: 42px;
-            background: #FFE0BD;
-            border-radius: 50% 50% 46% 46%;
-            overflow: hidden;
-        }
-        /* 招牌小瀏海 */
-        .baby-hair {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 12px;
-            background: #42210B;
-            border-radius: 0 0 4px 8px;
-        }
-        .baby-hair::after {
-            content: ''; position: absolute;
-            top: 8px; left: 18px;
-            width: 0; height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 7px solid #42210B;
-        }
-        /* image_4f4479.png 招牌瞇瞇笑眼 */
-        .baby-eyes {
-            position: absolute;
-            top: 15px; left: 6px; width: 34px; height: 6px;
-            display: flex; justify-content: space-between;
-        }
-        .baby-eyes::before, .baby-eyes::after {
-            content: ''; width: 10px; height: 6px;
-            border: 2.5px solid #42210B;
-            border-color: #42210B transparent transparent transparent;
-            border-radius: 50%/3px 3px 0 0;
-            transform: rotate(180deg); /* 倒轉變成彎彎笑眼 */
-        }
-        /* 飽滿肉肉紅潤雙頰 */
-        .baby-cheeks {
-            position: absolute;
-            top: 20px; left: 2px; width: 42px; height: 10px;
-            display: flex; justify-content: space-between;
-        }
-        .baby-cheeks::before, .baby-cheeks::after {
-            content: ''; width: 9px; height: 9px;
-            background: #FF8A80; opacity: 0.7;
+        /* 照片容器 */
+        .baby-photo-container {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            filter: blur(0.5px);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFF2E6; 
         }
-        /* 開心大笑嘴巴 */
-        .baby-mouth {
-            position: absolute;
-            top: 23px; left: 16px;
-            width: 14px; height: 10px;
-            background: #D32F2F;
-            border-radius: 1px 1px 10px 10px;
-            box-shadow: inset 0 2px 0 #FFCDD2; /* 隱約露出可愛的小舌頭/牙齦 */
+        .baby-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top; 
+            transform: scale(1.15); 
         }
         /* ---------------------------------- */
 
@@ -167,7 +133,7 @@
         .spot-name { font-size: 16px; font-weight: 700; color: var(--text-main); }
         .spot-desc { font-size: 13px; color: #5A5E73; margin-top: 6px; line-height: 1.4; }
         
-        /* 美食區塊 */
+        /* 美食餐點專用區塊 */
         .food-item { background-color: var(--food-bg); border-radius: 10px; padding: 10px 12px; margin-top: 8px; border-left: 4px solid var(--food-text); }
         .food-item-title { font-size: 13px; font-weight: 700; color: var(--food-text); display: flex; align-items: center; gap: 6px; }
         .food-item-title span { background: var(--food-text); color: white; font-size: 10px; padding: 1px 5px; border-radius: 4px; font-weight: bold; }
@@ -192,18 +158,15 @@
 
     <header>
         <div class="header-content">
-            <!-- 廖理寶寶專屬似顏繪貼圖 Icon 位子 -->
-            <div class="baby-avatar-sticker">
-                <div class="baby-face">
-                    <div class="baby-hair"></div>
-                    <div class="baby-eyes"></div>
-                    <div class="baby-cheeks"></div>
-                    <div class="baby-mouth"></div>
+            <!-- 廖理寶寶照片去背貼紙 Icon 位子 -->
+            <div class="baby-photo-sticker">
+                <div class="baby-photo-container">
+                    <img class="baby-img" src="baby.png" alt="廖理寶寶" onerror="this.style.display='none';">
                 </div>
             </div>
             <div class="header-text">
                 <h1>濟州廖理好海橘 🍊</h1>
-                <p>2026/06/22 - 06/26 · 5日自駕·廖理小寶寶隨行版</p>
+                <p>2026/06/22 - 06/26 · 媽媽每餐吃飽 + 經典夕陽不漏接</p>
             </div>
         </div>
     </header>
@@ -211,17 +174,17 @@
     <div class="flight-badge-container">
         <div class="flight-badge">
             <span>🛫 航班抵達 06:10</span>
-            <span>👶 1歲廖理寶寶專屬行程助手</span>
+            <span>🍽️ 每日四餐超滿足 · 絕不挨餓行程</span>
         </div>
     </div>
 
     <div class="tabs-container">
         <div class="tabs">
             <button class="tab-btn active" onclick="switchDash(1, event)">D1 史努比+海洋館➔海藍麗景</button>
-            <button class="tab-btn" onclick="switchDash(2, event)">D2 牛島+偶來市場➔Jeju Bom</button>
-            <button class="tab-btn" onclick="switchDash(3, event)">D3 南部放鬆➔格拉貝爾</button>
+            <button class="tab-btn" onclick="switchDash(2, event)">D2 牛島+日出峰夕陽➔Jeju Bom</button>
+            <button class="tab-btn" onclick="switchDash(3, event)">D3 南部放鬆+潛水艇➔格拉貝爾</button>
             <button class="tab-btn" onclick="switchDash(4, event)">D4 山茶花+Arte➔Ventimo</button>
-            <button class="tab-btn" onclick="switchDash(5, event)">D5 地下街與採買</button>
+            <button class="tab-btn" onclick="switchDash(5, event)">D5 地下街與大採買</button>
         </div>
     </div>
 
@@ -230,32 +193,36 @@
         <!-- ================= DAY 1 ================= -->
         <div id="dash1" class="day-section active">
             <div class="map-card">
-                <h3><i class="fa-solid fa-route"></i> 今日動線：機場 ➔ 市區烤肉 ➔ 史努比花園 ➔ 水族館(海洋館) ➔ 海藍麗景酒店</h3>
-                <p>💡 <b>包含：史努比花園、海洋館。</b> 中午吃完烤肉後拉車去東部，下午逛完兩大王牌景點後，晚上回市區入住海邊的海藍麗景酒店。</p>
+                <h3><i class="fa-solid fa-route"></i> 今日動線：機場取車 ➔ 鮑魚粥早午餐 ➔ 龍頭岩 ➔ 史努比花園 ➔ 海洋館 ➔ 漢堡晚餐 ➔ 飯店</h3>
+                <p>💡 <b>今日四餐：</b>抵達後立刻補充滿滿海味，下午逛完豐富行程，傍晚還有海邊黑豬肉漢堡點心！</p>
             </div>
 
             <div class="timeline">
                 <div class="spot-card car-card">
                     <div class="card-meta"><span class="time-badge" style="background:var(--car-bg);color:var(--car-blue);"><i class="fa-solid fa-key"></i> 07:00</span></div>
                     <div class="spot-name">Lotte Rent-a-Car 取車</div>
-                    <div class="spot-desc">確認安裝好寶寶安全座椅，準備出發。</div>
+                    <div class="spot-desc">確認安裝好寶寶安全座椅，出發覓食！</div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 15 分鐘</span></div>
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 08:00 - 09:00</span></div>
+                    <div class="spot-name">百番家 (백번가) 🥣</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 1 餐：早午餐</span>濃郁熱騰騰鮑魚粥，暖暖媽媽的胃！</div>
+                    </div>
+                </div>
 
                 <div class="spot-card">
-                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 08:45 - 09:45</span></div>
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 09:15 - 10:15</span></div>
                     <div class="spot-name">龍頭岩 & 彩虹公路散步</div>
-                    <div class="spot-desc">在海邊吹海風散步，拍下彩色石塊打卡照。</div>
+                    <div class="spot-desc">在海邊吹海風消化一下，拍下全家福打卡照。</div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 15 分鐘</span></div>
-
                 <div class="spot-card">
-                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 11:30 - 12:45</span></div>
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 11:30 - 12:45</span></div>
                     <div class="spot-name">Dotdam (돗담 諾衡店) 🥩</div>
                     <div class="food-item">
-                        <div class="food-item-title"><span>午餐</span>熟成黑豬烤五花肉🔥</div>
+                        <div class="food-item-title"><span>第 2 餐：午餐</span>熟成黑豬烤五花肉，油亮厚實超滿足！</div>
                     </div>
                 </div>
 
@@ -264,36 +231,28 @@
                 <div class="spot-card">
                     <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 13:45 - 15:30</span></div>
                     <div class="spot-name">Snoopy Garden 史努比花園 🐶</div>
-                    <div class="spot-desc">超萌的史努比主題園區，室內推車友善，戶外草皮適合拍照。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>스누피가든</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EC%8A%A4%EB%83%A8%ED%94%BC%EA%B0%80%EB%93%A0" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Snoopy+Garden+Jeju" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
-                    </div>
+                    <div class="spot-desc">超萌的主題園區，室內推車極度友善。</div>
                 </div>
-
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 25 分鐘</span></div>
 
                 <div class="spot-card" style="border: 1px solid #90CAF9; background-color: #E3F2FD;">
                     <div class="card-meta"><span class="time-badge" style="background:#E3F2FD; color:#1565C0;"><i class="fa-solid fa-fish"></i> 16:00 - 18:00</span></div>
                     <div class="spot-name">Aqua Planet 濟州海洋館 🦈</div>
-                    <div class="spot-desc">全室內不怕曬，有超大海底玻璃窗，看魚群與海洋劇場。</div>
+                    <div class="spot-desc">全室內有超大海底玻璃窗，看魚群放鬆。</div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car-side"></i> 走沿海公路開回濟州市區區 (約 50 分鐘)</span></div>
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 18:30 - 19:30</span></div>
+                    <div class="spot-name">平代里 5日黑豬肉漢堡 (Pyeongdaeri Burger) 🍔</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 3 餐：下午茶/晚餐1</span>回程沿海公路驚喜美味！</div>
+                    </div>
+                </div>
 
                 <div class="spot-card hotel-card">
-                    <div class="card-meta"><span class="time-badge" style="background:var(--hotel-bg);color:var(--hotel-purple);"><i class="fa-solid fa-hotel"></i> 19:15 入住</span></div>
+                    <div class="card-meta"><span class="time-badge" style="background:var(--hotel-bg);color:var(--hotel-purple);"><i class="fa-solid fa-hotel"></i> 20:15 入住</span></div>
                     <div class="spot-name">入住：海藍麗景酒店 (RegentMarine Hotel) 🌊</div>
-                    <div class="spot-desc"><b>第一晚入住！</b> 緊鄰濟州港與東門市場海邊，生活機能極佳，窗外就是絕美海景。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>호텔 리젠特마린</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%ED%98%B8%ED%85%94+%EB%A6%AC%EC%A0%A0%ED%8A%B8%EB%A7%88%EB%A6%B0" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Hotel+RegentMarine" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 4 餐：宵夜/晚餐2</span>東門市場外帶炸雞與現搾柑橘汁！🍊</div>
                     </div>
                 </div>
             </div>
@@ -302,56 +261,67 @@
         <!-- ================= DAY 2 ================= -->
         <div id="dash2" class="day-section">
             <div class="map-card">
-                <h3><i class="fa-solid fa-route"></i> 今日動線：海藍麗景 ➔ 城山港 ➔ 牛島 ➔ 涉地可支 ➔ 偶來市場 ➔ Jeju Bom stay</h3>
-                <p>📍 <b>包含：西歸浦偶來市場。</b> 晚上入住全濟州最有藝術感的森林系民宿。</p>
+                <h3><i class="fa-solid fa-route"></i> 今日動線：海藍麗景 ➔ 城山港 ➔ 牛島環島 ➔ 涉地可支 ➔ 城山日出峰夕陽 ➔ 偶來市場 ➔ 民宿</h3>
+                <p>📍 <b>夕陽回歸！今日四餐：</b>早上吃飽出海，黃昏看著日出峰巨大火山岩的橘紅夕陽，晚上逛市場吃香喝辣！</p>
             </div>
 
             <div class="timeline">
                 <div class="spot-card">
-                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 09:30 - 13:00</span></div>
-                    <div class="spot-name">牛島環島（珊瑚沙灘、下高水洞）🚢</div>
-                    <div class="spot-desc">從城山港搭船（人在島上租有窗電動三輪車）。</div>
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 08:30 - 09:15</span></div>
+                    <div class="spot-name">城山海女之家 (Seongsan Haenyeo) 🥣</div>
                     <div class="food-item">
-                        <div class="food-item-title"><span>必吃</span>漢拏山炒飯 🌋 + 牛島花生冰淇淋 🍦</div>
+                        <div class="food-item-title"><span>第 1 餐：早餐</span>海女現撈鮑魚粥與海鮮麵，出海前的滿滿體力！</div>
                     </div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>回本島開車 10 分鐘</span></div>
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 09:45 - 13:00</span></div>
+                    <div class="spot-name">牛島環島（珊瑚沙灘、下高水洞）🚢</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 2 餐：午餐</span>島上必吃漢拏山炒飯 🌋 + 牛島花生冰淇淋 🍦</div>
+                    </div>
+                </div>
 
                 <div class="spot-card">
                     <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 13:45 - 15:00</span></div>
                     <div class="spot-name">涉地可支 (Seopjikoji)</div>
-                    <div class="spot-desc">平緩的沿海步道，推嬰兒車步行無阻礙。</div>
+                    <div class="spot-desc">平緩的沿海步道，推嬰兒車看絕美海景。</div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>開車 50 分鐘（寶寶下午覺時間 💤）</span></div>
+                <!-- 回歸的夕陽景點 -->
+                <div class="spot-card" style="border: 1px solid #FFCC80; background-color: #FFF3E0;">
+                    <div class="card-meta"><span class="time-badge" style="background:#FFE0B2; color:#E65100;"><i class="fa-solid fa-sun"></i> 16:00 - 17:30</span></div>
+                    <div class="spot-name">🌅 城山日出峰 · 夕陽絕美步道</div>
+                    <div class="spot-desc"><b>看這裡！夕陽行程回來了！</b> 傍晚時分的光線最溫柔，帶媽媽與寶寶在草皮和木棧道散步，看著整座火山在夕陽下染成金色。</div>
+                    <div class="map-action-box">
+                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>성산일출봉</strong></div>
+                        <div class="btn-group">
+                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%80" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
+                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Seongsan+Ilchulbong" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="spot-card">
-                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 16:30 - 18:30</span></div>
-                    <div class="spot-name">西歸浦每日偶來市場 🛒</div>
-                    <div class="spot-desc">傳統市場吃美食：黑豬肉炸肉餅、大秋刀魚紫菜包飯、柑橘汁。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>서귀포매일올레시장</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EB%A7%A4%EC%9D%BC%EC%98%AC%EB%A0%88%EC%8B%9C%EC%9E%A5" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Seogwipo+Maeil+Olle+Market" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 17:45 - 18:45</span></div>
+                    <div class="spot-name">青雲食堂 (청운식당) 🐟</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 3 餐：晚餐</span>濟州招牌香烤白帶魚定食、大火慢燉排骨！</div>
                     </div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>開車僅 10 分鐘</span></div>
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 19:30 - 20:30</span></div>
+                    <div class="spot-name">西歸浦每日偶來市場 🛒</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 4 餐：夜市宵夜</span>黑豬肉炸肉餅、大秋刀魚紫菜包飯！</div>
+                    </div>
+                </div>
 
                 <div class="spot-card hotel-card">
-                    <div class="card-meta"><span class="time-badge" style="background:var(--hotel-bg);color:var(--hotel-purple);"><i class="fa-solid fa-hotel"></i> 18:45 入住</span></div>
+                    <div class="card-meta"><span class="time-badge" style="background:var(--hotel-bg);color:var(--hotel-purple);"><i class="fa-solid fa-hotel"></i> 21:00 入住</span></div>
                     <div class="spot-name">入住：Jeju Bom stay & Art Gallery 🎨</div>
-                    <div class="spot-desc"><b>第二晚入住！</b> 隱身於西歸浦藝術館庭園內的高質感住宿。環境超級清幽，充滿設計感。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>제주봄박물관</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%B4%84%EB%B0%95%EB%AC%BC%EA%B4%80" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Jeju+Bom+Stay" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
-                    </div>
+                    <div class="spot-desc">隱身於西歸浦森林庭園內的高質感藝術住宿。</div>
                 </div>
             </div>
         </div>
@@ -359,52 +329,44 @@
         <!-- ================= DAY 3 ================= -->
         <div id="dash3" class="day-section">
             <div class="map-card">
-                <h3><i class="fa-solid fa-route"></i> 今日動線：Jeju Bom ➔ 西歸浦潛水艇 ➔ 天帝淵瀑布 ➔ 柱狀節理帶 ➔ 格拉貝爾酒店</h3>
-                <p>📍 <b>包含：西歸浦潛水艇、天帝淵瀑布、大浦海岸柱狀節理帶。</b> 玩完南部後一路北上，直奔高CP值海景泳池格拉貝爾酒店。</p>
+                <h3><i class="fa-solid fa-route"></i> 今日動線：Jeju Bom ➔ 西歸浦潛水艇 ➔ 海鮮午餐 ➔ 天帝淵瀑布 ➔ 柱狀節理帶 ➔ 海景下午茶 ➔ 飯店泳池</h3>
+                <p>📍 <b>今日四餐：</b>早上入海看珊瑚，中午吃澎湃海鮮，下午在無邊際海景咖啡廳享受優雅的下午茶！</p>
             </div>
 
             <div class="timeline">
                 <div class="spot-card" style="border: 1px solid #CE93D8; background-color: #F3E5F5;">
                     <div class="card-meta"><span class="time-badge" style="background:#E1BEE7; color:#4A148C;"><i class="fa-solid fa-subway"></i> 09:30 - 11:10</span></div>
                     <div class="spot-name">西歸浦潛水艇 (Seogwipo Submarine) 🤿</div>
-                    <div class="spot-desc">帶一歲寶寶潛入海底 40 米看珊瑚礁、美麗魚群與餵食秀。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>서귀포잠수함</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%9E%A0%EC%88%98%ED%95%A8" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Seogwipo+Submarine" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
+                    <div class="spot-desc">第 1 餐在飯店吃過豐富早餐。隨後潛入海底 40 米看美麗魚群！</div>
+                </div>
+
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 11:40 - 12:45</span></div>
+                    <div class="spot-name">大坪里海女拉麵 (Daepyeong Haenyeo) 🍜</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 2 餐：午餐</span>放滿整隻螃蟹與鮑魚的現煮海鮮拉麵！</div>
                     </div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 20 分鐘</span></div>
-
-                <div class="spot-card">
-                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 11:30 - 12:45</span></div>
-                    <div class="spot-name">天帝淵瀑布 (Cheonjeyeon) 🌊</div>
-                    <div class="spot-desc">看仙臨橋和壯麗瀑布。台階較多，建議此景點使用嬰兒背巾唷！</div>
-                </div>
-
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 8 分鐘</span></div>
-
                 <div class="spot-card">
                     <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 13:00 - 14:15</span></div>
-                    <div class="spot-name">大浦海岸柱狀節理帶 🗿</div>
-                    <div class="spot-desc">觀賞大自然鬼斧神工的六角形玄武岩柱，全程木棧道，嬰兒車非常好推。</div>
+                    <div class="spot-name">天帝淵瀑布 & 大浦海岸柱狀節理帶 🗿</div>
+                    <div class="spot-desc">觀賞壯麗玄武岩柱，全程木棧道，嬰兒車非常舒服。</div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>向西北方拉車 45 分鐘，直奔海景飯店</span></div>
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 14:45 - 15:45</span></div>
+                    <div class="spot-name">The Cliff 崖邊海景咖啡廳 ☕</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 3 餐：下午茶</span>吹海風、喝彩色柑橘氣泡飲，媽媽最愛的網美打卡！</div>
+                    </div>
+                </div>
 
                 <div class="spot-card hotel-card">
-                    <div class="card-meta"><span class="time-badge" style="background:var(--hotel-bg);color:var(--hotel-purple);"><i class="fa-solid fa-hotel"></i> 15:30 ~ 入住</span></div>
+                    <div class="card-meta"><span class="time-badge" style="background:var(--hotel-bg);color:var(--hotel-purple);"><i class="fa-solid fa-hotel"></i> 16:30 入住</span></div>
                     <div class="spot-name">入住：濟州格拉貝爾酒店 (Grabel Hotel) 🏨</div>
-                    <div class="spot-desc"><b>第三晚入住！</b> 擁有超美無邊際溫水泳池，一歲寶寶玩水超級安全又開心。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>그라벨호텔</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EA%B7%B8%EB%9D%BC%EB%B2%A8%ED%98%B8%ED%85%94" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Grabel+Hotel+Jeju" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 4 餐：晚餐</span>池畔俱樂部精緻排餐，一邊看海景溫水泳池！</div>
                     </div>
                 </div>
             </div>
@@ -413,52 +375,44 @@
         <!-- ================= DAY 4 ================= -->
         <div id="dash4" class="day-section">
             <div class="map-card">
-                <h3><i class="fa-solid fa-route"></i> 今日動線：格拉貝爾 ➔ 山茶花之丘 ➔ Arte Museum ➔ 涯月邑(橘子咖啡廳) ➔ Ventimo</h3>
-                <p>📍 <b>包含：山茶花之丘、Arte Museum、橘子咖啡廳。</b> 橫掃濟州島西海岸最頂級的打卡與數位視覺藝術景點。</p>
+                <h3><i class="fa-solid fa-route"></i> 今日動線：格拉貝爾 ➔ 山茶花之丘 ➔ Arte Museum ➔ 涯月午餐 ➔ 橘子咖啡廳 ➔ 新市區晚餐</h3>
+                <p>📍 <b>今日四餐：</b>花海與藝術雙重饗宴，涯月邑海邊的烤肉堡配海景，晚上回市區吃香噴噴韓式炸雞！</p>
             </div>
 
             <div class="timeline">
                 <div class="spot-card">
                     <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 09:30 - 11:00</span></div>
                     <div class="spot-name">山茶花之丘 (Camellia Hill) 🌺</div>
-                    <div class="spot-desc">四季有不同美麗花卉的大型庭園，道路平坦，推嬰兒車毫無壓力。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>카멜리아힐</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Camellia+Hill" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
+                    <div class="spot-desc">第 1 餐享用飯店美味早點。漫步四季萬紫千紅的花卉大型庭園。</div>
+                </div>
+
+                <div class="spot-card" style="border: 1px solid #AB47BC; background-color: #F3E5F5;">
+                    <div class="card-meta"><span class="time-badge" style="background:#E1BEE7; color:#7B1FA2;"><i class="fa-solid fa-palette"></i> 11:25 - 13:00</span></div>
+                    <div class="spot-name">Arte Museum 濟州 (阿爾特博物館) 🖼️</div>
+                    <div class="spot-desc">超震撼的沉浸式數位藝術美術館，冷氣開放超舒服。</div>
+                </div>
+
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 13:30 - 14:30</span></div>
+                    <div class="spot-name">涯月 熟成到 (Sukseongdo) 或 韓式定食 🍱</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 2 餐：午餐</span>海景配超精緻韓式小菜肉排定食，大滿足！</div>
                     </div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 20 分鐘</span></div>
-
-                <div class="spot-card" style="border: 1px solid #AB47BC; background-color: #F3E5F5;">
-                    <div class="card-meta"><span class="time-badge" style="background:#E1BEE7; color:#7B1FA2;"><i class="fa-solid fa-palette"></i> 11:25 - 13:30</span></div>
-                    <div class="spot-name">Arte Museum 濟州 (阿爾特博物館) 🖼️</div>
-                    <div class="spot-desc">超震撼的沉浸式數位藝術美術館，冷氣開放、推車無障礙。</div>
-                </div>
-
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 20 分鐘</span></div>
-
                 <div class="spot-card">
-                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 13:50 - 15:50</span></div>
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 14:45 - 15:45</span></div>
                     <div class="spot-name">涯月邑漢潭海邊 & 橘子主題咖啡廳 🍊</div>
-                    <div class="spot-desc">涯月邑海邊有超多柑橘風格、大橘子充氣裝飾的網美海景咖啡廳，點一杯現榨橘子汁拍全家福。</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 3 餐：下午茶</span>點現榨橘子汁配柑橘生乳捲，大充氣橘子超好拍。</div>
+                    </div>
                 </div>
-
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>開車 30 分鐘返回新濟州市區</span></div>
 
                 <div class="spot-card hotel-card">
                     <div class="card-meta"><span class="time-badge" style="background:var(--hotel-bg);color:var(--hotel-purple);"><i class="fa-solid fa-hotel"></i> 16:30 入住</span></div>
                     <div class="spot-name">入住：Ventimo Hotel & Residence Jeju 🏨</div>
-                    <div class="spot-desc"><b>第四晚入住！</b> 新濟州市區高評價、極度乾淨舒適的商務公寓酒店。</div>
-                    <div class="map-action-box">
-                        <div class="search-keyword"><i class="fa-solid fa-magnifying-glass"></i> 關鍵字：<strong>벤티모호텔앤레지던스제주</strong></div>
-                        <div class="btn-group">
-                            <a class="map-btn btn-naver" href="https://map.naver.com/v5/search/%EB%B2%A4%ED%8B%B0%EB%AA%A8%ED%98%B8%ED%85%94" target="_blank"><i class="fa-solid fa-location-arrow"></i> Naver</a>
-                            <a class="map-btn btn-google" href="https://maps.google.com/?q=Ventimo+Hotel+and+Residence+Jeju" target="_blank"><i class="fa-solid fa-map"></i> Google</a>
-                        </div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 4 餐：晚餐</span>外送橋村炸雞（Kyochon）或是熱騰騰部隊鍋！</div>
                     </div>
                 </div>
             </div>
@@ -467,31 +421,39 @@
         <!-- ================= DAY 5 ================= -->
         <div id="dash5" class="day-section">
             <div class="map-card">
-                <h3><i class="fa-solid fa-route"></i> 今日動線：Ventimo ➔ 中央地下街 ➔ E-Mart ➔ 樂天還車 ➔ 濟州機場</h3>
-                <p>📍 <b>包含：中央地下街、E-Mart 採買。</b> 大採購完直接去機場還車登機，極致流暢。</p>
+                <h3><i class="fa-solid fa-route"></i> 今日動線：Ventimo ➔ 中央地下街 ➔ 地下街小吃 ➔ E-Mart 大採買 ➔ 機場還車</h3>
+                <p>📍 <b>最後衝刺四餐：</b>一邊血拼一邊大口吃，打包完行李再去快樂坐飛機！</p>
             </div>
 
             <div class="timeline">
                 <div class="spot-card">
                     <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 09:30 - 11:00</span></div>
-                    <div class="spot-name">濟州中央地下街 🛍️</div>
-                    <div class="spot-desc">有遮陽避風的地下服飾與美妝商圈，適合推著寶寶幫全家添購衣服與伴手禮。</div>
+                    <div class="spot-name">濟州中央地下街血拼 🛍️</div>
+                    <div class="spot-desc">第 1 餐先吃完飯店精緻早餐。地下街遮陽避風，爽爽幫全家買衣服。</div>
                 </div>
-
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>車程 10 分鐘</span></div>
 
                 <div class="spot-card">
-                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-clock"></i> 11:15 - 12:35</span></div>
-                    <div class="spot-name">E-Mart 新濟州店 大採買 🛒</div>
-                    <div class="spot-desc">採購大包海橘巧克力、泡麵和海苔。在賣場停車場直接打包好行李。</div>
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 11:00 - 11:45</span></div>
+                    <div class="spot-name">地下街傳統年糕黑米血腸攤 🍢</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 2 餐：點心下午茶</span>香辣魚糕湯、現切血腸，傳統點心絕讚！</div>
+                    </div>
                 </div>
 
-                <div class="transit-node"><span class="transit-badge"><i class="fa-solid fa-car"></i>還車與登機</span></div>
+                <div class="spot-card">
+                    <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 12:00 - 13:15</span></div>
+                    <div class="spot-name">E-Mart 新濟州店 & 美食街 🛒</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 3 餐：午餐</span>美食街石鍋拌飯 / 海鮮烏龍麵，吃飽大採購巧克力與海苔。</div>
+                    </div>
+                </div>
 
                 <div class="spot-card car-card">
-                    <div class="card-meta"><span class="time-badge" style="background:var(--car-bg);color:var(--car-blue);"><i class="fa-solid fa-reply"></i> 13:15</span></div>
-                    <div class="spot-name">Lotte Rent-a-Car 還車➔機場</div>
-                    <div class="spot-desc">還車後推著寶寶搭乘接駁車 8 分鐘直達機場，準備搭機回台灣。</div>
+                    <div class="card-meta"><span class="time-badge" style="background:var(--car-bg);color:var(--car-blue);"><i class="fa-solid fa-reply"></i> 14:00</span></div>
+                    <div class="spot-name">Lotte Rent-a-Car 還車 ➔ 機場登機 🛫</div>
+                    <div class="food-item">
+                        <div class="food-item-title"><span>第 4 餐：機場候機</span>免稅店柑橘冰淇淋與手作麵包，帶著飽飽的肚子回台灣！</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -499,7 +461,7 @@
     </div>
 
     <div class="footer">
-        廖理好海橘行程助手 · 寶寶專屬動態網頁版 🍊
+        廖理好海橘行程助手 · 媽媽吃飽飽+看夕陽終極完美網頁版 🍊
     </div>
 
     <script>
