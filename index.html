@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>濟州廖理好海橘 🍊 (媽媽吃飽飽+日出峰夕陽版)</title>
+    <title>濟州廖理好海橘 🍊 (Tab固定不滾動版)</title>
     <!-- 引入 FontAwesome 圖標 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- 引入 繁體中文 Google 字型 -->
@@ -30,14 +30,21 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans TC', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--chictrip-bg); color: var(--text-main); padding-bottom: 60px; }
         
-        /* 頁首與寶寶真人照片貼紙區塊 */
-        header { background-color: var(--card-bg); padding: 16px; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        /* 頁首：維持 sticky 貼在最頂 */
+        header { 
+            background-color: var(--card-bg); 
+            padding: 16px; 
+            border-bottom: 1px solid var(--border-color); 
+            position: sticky; 
+            top: 0; 
+            z-index: 101; 
+        }
         .header-content { display: flex; align-items: center; justify-content: center; gap: 14px; max-width: 500px; margin: 0 auto; }
         .header-text { text-align: left; }
         header h1 { font-size: 20px; font-weight: 700; color: var(--text-main); line-height: 1.2; }
         header p { font-size: 12px; color: var(--text-sub); margin-top: 4px; }
         
-        /* --- 廖理寶寶照片去背貼紙外框 (融合濟州橘子意象) --- */
+        /* --- 廖理寶寶照片去背貼紙外框 --- */
         .baby-photo-sticker {
             position: relative;
             width: 70px;
@@ -52,7 +59,6 @@
             justify-content: center;
             overflow: visible; 
         }
-        /* 橘子梗與綠葉 */
         .baby-photo-sticker::before {
             content: '';
             position: absolute;
@@ -73,7 +79,6 @@
             transform: rotate(-15deg);
             z-index: 2;
         }
-        /* 照片容器 */
         .baby-photo-container {
             width: 100%;
             height: 100%;
@@ -91,20 +96,33 @@
             object-position: center top; 
             transform: scale(1.15); 
         }
-        /* ---------------------------------- */
-
-        .flight-badge-container { text-align: center; background-color: var(--chictrip-bg); padding-bottom: 10px; }
+        
+        /* 航班與吃飽提示：移動到 header 內部，不被 fixed 卡片擋住 */
+        .flight-badge-container { text-align: center; background-color: var(--card-bg); padding-bottom: 4px; }
         .flight-badge { background-color: #F1F3F5; padding: 6px 12px; border-radius: 20px; font-size: 11px; display: inline-flex; gap: 10px; margin-top: 4px; color: var(--text-main); }
         
-        /* 導覽頁籤 */
-        .tabs-container { background-color: var(--card-bg); padding: 10px 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 115px; z-index: 99; }
+        /* 🚀 關鍵修正：導覽頁籤真正固定（Fixed）不隨著頁面滾動移動 */
+        .tabs-container { 
+            background-color: var(--card-bg); 
+            padding: 10px 0; 
+            border-bottom: 1px solid var(--border-color); 
+            position: fixed; 
+            top: 153px; /* 高度剛好卡在 header 與航班提示正下方 */
+            left: 0;
+            width: 100%;
+            z-index: 100; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
         .tabs { display: flex; overflow-x: auto; padding: 0 16px; gap: 8px; scrollbar-width: none; }
         .tabs::-webkit-scrollbar { display: none; }
         .tab-btn { background: #F1F3F5; color: var(--text-main); border: none; padding: 8px 14px; border-radius: 20px; font-weight: 500; font-size: 13px; white-space: nowrap; cursor: pointer; }
         .tab-btn.active { background-color: var(--chictrip-orange); color: #FFF; font-weight: 700; }
         
-        /* 主要內容 */
-        .container { padding: 16px; }
+        /* 主要內容：加上頂部邊距，避免內容潛入固定的 Tab 下方 */
+        .container { 
+            padding: 16px; 
+            margin-top: 60px; /* 預留給固定導覽列的空間 */
+        }
         .day-section { display: none; }
         .day-section.active { display: block; }
         
@@ -156,9 +174,9 @@
 </head>
 <body>
 
+    <!-- 頁首與包裹在內的提示，一起成為固定的頂部區塊 -->
     <header>
         <div class="header-content">
-            <!-- 廖理寶寶照片去背貼紙 Icon 位子 -->
             <div class="baby-photo-sticker">
                 <div class="baby-photo-container">
                     <img class="baby-img" src="baby.png" alt="廖理寶寶" onerror="this.style.display='none';">
@@ -169,15 +187,15 @@
                 <p>2026/06/22 - 06/26 · 媽媽每餐吃飽 + 經典夕陽不漏接</p>
             </div>
         </div>
+        <div class="flight-badge-container">
+            <div class="flight-badge">
+                <span>🛫 航班抵達 06:10</span>
+                <span>🍽️ 每日四餐超滿足 · 絕不挨餓行程</span>
+            </div>
+        </div>
     </header>
 
-    <div class="flight-badge-container">
-        <div class="flight-badge">
-            <span>🛫 航班抵達 06:10</span>
-            <span>🍽️ 每日四餐超滿足 · 絕不挨餓行程</span>
-        </div>
-    </div>
-
+    <!-- 固定在網頁上方、不隨頁面滾動而移動的 Tab -->
     <div class="tabs-container">
         <div class="tabs">
             <button class="tab-btn active" onclick="switchDash(1, event)">D1 史努比+海洋館➔海藍麗景</button>
@@ -404,7 +422,7 @@
                     <div class="card-meta"><span class="time-badge"><i class="fa-solid fa-utensils"></i> 14:45 - 15:45</span></div>
                     <div class="spot-name">涯月邑漢潭海邊 & 橘子主題咖啡廳 🍊</div>
                     <div class="food-item">
-                        <div class="food-item-title"><span>第 3 餐：下午茶</span>點現榨橘子汁配柑橘生乳捲，大充氣橘子超好拍。</div>
+                        <div class="food-item-title"><span>第 3 餐：下午茶</span>點现榨橘子汁配柑橘生乳捲，大充氣橘子超好拍。</div>
                     </div>
                 </div>
 
@@ -473,6 +491,8 @@
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             if(event && event.target) event.target.classList.add('active');
+            
+            // 切換天數時，畫面會貼心滑回頂部，且不會被固定的 Tab 蓋住起點
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
