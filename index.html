@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>濟州廖理 v13.0 吃貨父母圓夢自駕版</title>
-    <!-- 引入質感圖示與字體 -->
+    <title>濟州廖理 v13.3 西歸浦偶來市場版</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -24,6 +23,10 @@
             --car-bg: #E3F2FD;
             --baby-pink: #FFF0F5;
             --baby-text: #C71585;
+            --hotel-purple: #7E57C2;
+            --hotel-bg: #F3E5F5;
+            --market-teal: #008080;
+            --market-bg: #E0F2F1;
         }
 
         * { 
@@ -131,9 +134,21 @@
         .car-card { border: 1px solid #B3E5FC; background-color: #FAFDFF; }
         .car-card::before { background-color: var(--car-blue) !important; box-shadow: 0 0 0 2px var(--car-blue) !important; }
 
+        .hotel-card { border: 1px solid #D1C4E9; background-color: #FAF5FF; }
+        .hotel-card::before { background-color: var(--hotel-purple) !important; box-shadow: 0 0 0 2px var(--hotel-purple) !important; }
+
+        .market-card { border: 1px solid #80CBC4; background-color: #F0FBFB; }
+        .market-card::before { background-color: var(--market-teal) !important; box-shadow: 0 0 0 2px var(--market-teal) !important; }
+
+        .sunset-card { border: 1px solid #E1BEE7; background-color: #FFF8E1; }
+        .sunset-card::before { background-color: #9C27B0 !important; box-shadow: 0 0 0 2px #9C27B0 !important; }
+
         .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .time-badge { font-size: 12px; font-weight: 700; color: var(--chictrip-orange); }
         .car-badge-time { color: var(--car-blue); }
+        .hotel-badge-time { color: var(--hotel-purple); }
+        .sunset-badge-time { color: #9C27B0; }
+        .market-badge-time { color: var(--market-teal); }
         .nav-button {
             font-size: 11px; color: white; background-color: var(--naver-green); text-decoration: none;
             font-weight: 700; display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 12px;
@@ -182,10 +197,9 @@
 </head>
 <body>
 
-    <!-- 頂部大標題 -->
     <header>
         <h1>濟州廖理 · 大人的夢幻美食四大餐</h1>
-        <p>2026/06/22 - 06/26 · 兼顧一歲寶寶自駕版 v13.0</p>
+        <p>2026/06/22 - 06/26 · 兼顧一歲寶寶自駕版 v13.3</p>
         <div class="flight-badge">
             <span>🛫 去程 03:00 → 06:10</span>
             <span>🚗 舒適自駕 (含安全汽座)</span>
@@ -193,11 +207,10 @@
         </div>
     </header>
 
-    <!-- 膠囊分頁導航 -->
     <div class="tabs-container">
         <div class="tabs">
             <button class="tab-btn active" onclick="switchDash(1, event)">D1 6/22 北東部</button>
-            <button class="tab-btn" onclick="switchDash(2, event)">D2 6/23 牛島東部</button>
+            <button class="tab-btn" onclick="switchDash(2, event)">D2 6/23 牛島市場</button>
             <button class="tab-btn" onclick="switchDash(3, event)">D3 6/24 南部沿海</button>
             <button class="tab-btn" onclick="switchDash(4, event)">D4 6/25 西部綠茶</button>
             <button class="tab-btn" onclick="switchDash(5, event)">D5 6/26 東北市區</button>
@@ -206,18 +219,17 @@
 
     <div class="container">
 
-        <!-- ================= DAY 1 ================= -->
         <div id="dash1" class="day-section active">
             <div class="map-card">
                 <h3><i class="fa-solid fa-fire"></i> 今日重頭戲：大人靈魂烤黑豬肉！</h3>
-                <p>📍 今日解鎖：機場取車 ➔ 彩虹公路 ➔ 史努比花園 ➔ Dotdam 質感烤黑豬肉</p>
+                <p>📍 今日解鎖：機場取車 ➔ 彩虹公路 ➔ 史努比花園 ➔ Dotdam 烤黑豬肉 ➔ 飯店 Check-in</p>
             </div>
 
             <div class="timeline">
                 <div class="spot-card car-card">
                     <div class="card-meta">
                         <span class="time-badge car-badge-time"><i class="fa-solid fa-key"></i> 06:10 - 07:00</span>
-                        <a class="nav-button" style="background-color: var(--car-blue);" href="https://map.naver.com/v5/search/제주공항+렌터卡" target="_blank"><i class="fa-solid fa-bus"></i>租車接駁</a>
+                        <a class="nav-button" style="background-color: var(--car-blue);" href="https://map.naver.com/v5/search/제주공항+렌터카" target="_blank"><i class="fa-solid fa-bus"></i>租車接駁</a>
                     </div>
                     <div class="spot-name">Lotte Rent-a-Car 迅速取車</div>
                     <div class="food-item food-item-breakfast food-tag-breakfast">
@@ -276,14 +288,28 @@
                         <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：店家加點「火山蒸蛋(계란찜)」拌白飯 ＋ 無鹽鮑魚粥，口感極軟</div>
                     </div>
                 </div>
+
+                <div class="transit-node">
+                    <span class="transit-badge" style="background-color: var(--hotel-bg); color: var(--hotel-purple);"><i class="fa-solid fa-car-side"></i> 飽餐頓足，開車返回市區飯店放行李</span>
+                </div>
+
+                <div class="spot-card hotel-card">
+                    <div class="card-meta">
+                        <span class="time-badge hotel-badge-time"><i class="fa-solid fa-hotel"></i> 18:00+</span>
+                        <a class="nav-button" style="background-color: var(--hotel-purple);" href="https://map.naver.com/v5/search/제주호텔" target="_blank"><i class="fa-solid fa-location-arrow"></i>飯店導航</a>
+                    </div>
+                    <div class="spot-name">濟州市區飯店 Check-in 落地休息</div>
+                    <div class="korea-gps-box">
+                        <i class="fa-solid fa-circle-info"></i> 第一天搭乘清晨班機，晚餐早吃早結束。此時回飯店幫寶寶洗個舒服的熱水澡，大人也能徹底放鬆、補眠，調整回最佳體力！
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- ================= DAY 2 ================= -->
         <div id="dash2" class="day-section">
             <div class="map-card">
-                <h3><i class="fa-solid fa-beer-mug-empty"></i> 今日重頭戲：宵夜回飯店爽嗑韓式炸雞！</h3>
-                <p>📍 今日解鎖：倫敦貝果 ➔ 牛島隨車上船自駕 ➔ 水族館 ➔ 西歸浦 BHC/BBQ 炸雞</p>
+                <h3><i class="fa-solid fa-store"></i> 今日重頭戲：城山落日 ➔ 西歸浦偶來市場小吃狂歡！</h3>
+                <p>📍 今日解鎖：倫敦貝果 ➔ 牛島隨車自駕 ➔ 水族館 ➔ 城山夕陽 ➔ 每日偶來市場小吃宵夜</p>
             </div>
 
             <div class="timeline">
@@ -319,7 +345,7 @@
                 </div>
 
                 <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>回本島後前往避暑水族館</span>
+                    <span class="transit-badge"><i class="fa-solid fa-car"></i>回本島後前往避暑水族館，正好讓寶寶在車上小睡 💤</span>
                 </div>
 
                 <div class="spot-card">
@@ -331,257 +357,25 @@
                 </div>
 
                 <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>開車前往西歸浦市區飯店放行李</span>
+                    <span class="transit-badge"><i class="fa-solid fa-car"></i>車程僅 5 分鐘，前往火山岩壁看落日</span>
                 </div>
 
-                <div class="spot-card">
+                <div class="spot-card sunset-card">
                     <div class="card-meta">
-                        <span class="time-badge">18:30+</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/BBQ치킨+서귀포" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
+                        <span class="time-badge sunset-badge-time"><i class="fa-solid fa-cloud-sun"></i> 17:15 - 19:15</span>
+                        <a class="nav-button" style="background-color: #9C27B0;" href="https://map.naver.com/v5/search/성산일출봉" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
                     </div>
-                    <div class="spot-name">飯店狂歡 ➔ BHC / BBQ 韓式炸雞大餐</div>
-                    <div class="food-item">
-                        <div class="food-item-title"><span>第四餐 · 晚餐</span>大人雙拼爆吃：蒜味醬油 or 起司半半炸雞 🍗🍺</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：點「無骨(순살)」，大人剝掉厚脆外皮，將裡面極度多汁、無辣無鹽的純雞白肉撕成細絲給寶寶吃</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= DAY 3 ================= -->
-        <div id="dash3" class="day-section">
-            <div class="map-card">
-                <h3><i class="fa-solid fa-shrimp"></i> 今日重頭戲：極致澎湃章魚貝類海鮮鍋！</h3>
-                <p>📍 今日解鎖：多情家飯捲 ➔ 天地淵瀑布 ➔ 泰迪熊 ➔ 三姓穴活海鮮鍋 ➔ 你好鮑魚</p>
-            </div>
-
-            <div class="timeline">
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">08:00 - 09:00</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/다정가김밥" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">多情家紫菜包飯（外帶在車上吃最快速）</div>
-                    <div class="food-item food-item-breakfast food-tag-breakfast">
-                        <div class="food-item-title"><span>第一餐 · 早餐</span>傳統麻油海苔飯捲 🍙</div>
+                    <div class="spot-name">城山日出峰 (성산일출봉) 🌅 絕美夕陽</div>
+                    <div class="korea-gps-box">
+                        <i class="fa-solid fa-circle-info"></i> <strong>育兒心法</strong>：帶寶寶在山腳下的大平緩草坪步道散步，平視巨型火山錐岩壁，欣賞染成金黃色的夕陽。
                     </div>
                 </div>
 
                 <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>開車 10 分鐘抵達瀑布景區</span>
+                    <span class="transit-badge"><i class="fa-solid fa-car"></i>看完美景，開車約 50 分鐘直奔西歸浦市區</span>
                 </div>
 
-                <div class="spot-card">
+                <div class="spot-card market-card">
                     <div class="card-meta">
-                        <span class="time-badge">09:30 - 11:30</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/천지연폭포" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">天地淵瀑布散步</div>
-                    <div class="food-item food-item-snack food-tag-snack">
-                        <div class="food-item-title"><span>第二餐 · 點心</span>網紅必吃：umu 手工天然海藻布丁 🍮</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：石花菜天然熬煮、無明膠化學物，入口即化，寶寶吃兩口原味超安全</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>開往中文觀光園區大啖海鮮</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">12:00 - 14:30</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/삼성혈해물탕" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">三姓穴海鮮湯 (삼성혈해물탕)</div>
-                    <div class="food-item food-item-lunch food-tag-lunch">
-                        <div class="food-item-title"><span>第三餐 · 午餐</span>大人爆吃：活章魚、巨大鮑魚滿出來的海鮮火鍋 🐙🦀</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：【在加辣醬、煮泡麵前】，舀出純天然海鮮高湯拌白飯，撈出鍋底燉軟的豆腐餵食</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>縱貫1100公路開回北部（車程剛好讓寶寶午睡大充能 💤）</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">17:30+</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/안녕전복" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">你好鮑魚 (안녕전복) 溫馨晚餐</div>
-                    <div class="food-item">
-                        <div class="food-item-title"><span>第四餐 · 晚餐</span>招牌特濃郁溫潤鮑魚粥 🥣</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：這家店的鮑魚粥燉得極爛，是全濟州島最公認的寶寶副食品神店！</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= DAY 4 ================= -->
-        <div id="dash4" class="day-section">
-            <div class="map-card">
-                <h3><i class="fa-solid fa-bowl-rice"></i> 今日重頭戲：超濃郁黑豬肉湯麵老店！</h3>
-                <p>📍 今日解鎖：熱騰騰豬肉湯飯 ➔ 綠茶博物館 ➔ 涯月海景 ➔ 偶來黑豬肉湯麵</p>
-            </div>
-
-            <div class="timeline">
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">08:30 - 09:30</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/제주국밥" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">市區传统老店：熱騰騰豬肉湯飯</div>
-                    <div class="food-item food-item-breakfast food-tag-breakfast">
-                        <div class="food-item-title"><span>第一餐 · 早餐</span>大骨慢熬純白豬肉湯飯 🍲</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：上桌前請店家不要加胡椒/鹽巴，舀純湯頭拌白飯，白切肉剪碎，寶寶大愛</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>開車前往中部茶園</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">10:00 - 12:00</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/오설록티뮤지엄" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">Osulloc 綠茶博物館</div>
-                    <div class="food-item food-item-lunch food-tag-lunch">
-                        <div class="food-item-title"><span>第二餐 · 午餐</span>精緻午茶：綠茶千層蛋糕與醇濃牛奶霜淇淋 🍵🍰</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>開往西北海岸涯月邑海景公路</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">12:30 - 15:00</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/애월카페거리" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">涯月邑海景咖啡街散步（看海喝咖啡時間）</div>
-                    <div class="food-item food-item-snack food-tag-snack">
-                        <div class="food-item-title"><span>第三餐 · 點心</span>路邊甜點：現炸手工微甜糯米黑糖糖餅 🥧</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>返回市區放行李</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">18:30+</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/올래국수" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">偶來麵條 (올래국수) 傳統老店</div>
-                    <div class="food-item">
-                        <div class="food-item-title"><span>第四餐 · 晚餐</span>大人爽吃：厚切黑豬肉片＋濃郁大骨湯手工麵 🍜</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：在店家「撒胡椒粉前」，先舀出清湯與手工麵條，用剪刀剪成小段，當作寶寶烏龍麵餵食</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ================= DAY 5 ================= -->
-        <div id="dash5" class="day-section">
-            <div class="map-card">
-                <h3><i class="fa-solid fa-egg"></i> 今日重頭戲：朝聖超大方形玉子燒飯捲！</h3>
-                <p>📍 今日解鎖：金萬福飯捲 ➔ 咸德果凍海 ➔ 地下街童裝 ➔ 東門傳統市場 ➔ 還車任務</p>
-            </div>
-
-            <div class="timeline">
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">08:30 - 09:30</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/제주만복" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">濟州金萬福（市區排隊外帶美食）</div>
-                    <div class="food-item food-item-breakfast food-tag-breakfast">
-                        <div class="food-item-title"><span>第一餐 · 早餐</span>大人瘋狂拍照：招牌方形玉子燒鮑魚飯捲 🍱</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：飯捲核心那一塊像蜂蜜蛋糕一樣鬆軟、微甜的超巨大玉子燒（雞蛋）</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>一路向東開往咸德海水浴場（最順路）</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">10:00 - 12:30</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/함덕해수욕장" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">咸德海水浴場果凍海散步</div>
-                    <div class="food-item food-item-lunch food-tag-lunch">
-                        <div class="food-item-title"><span>第二餐 · 午餐</span>無敵海景餐廳：香煎鮑魚排佐嫩肩牛排 🦪🥩</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-car"></i>向西開回市區 ➔ 中央地下街買童裝</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">13:30 - 15:30</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/제주칠성로상가" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">中央地下街童裝大採購</div>
-                    <div class="food-item food-item-snack food-tag-snack">
-                        <div class="food-item-title"><span>第三餐 · 點心</span>路邊甜點：東門市場現打 100% 漢拿峰柑橘汁 🍊</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：用吸管喝幾口不加糖水的原汁補充維他命 C</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge"><i class="fa-solid fa-person-walking"></i>步行過馬路即達東門傳統市場</span>
-                </div>
-
-                <div class="spot-card">
-                    <div class="card-meta">
-                        <span class="time-badge">15:30 - 18:30</span>
-                        <a class="nav-button" href="https://map.naver.com/v5/search/제주동문재래시장" target="_blank"><i class="fa-solid fa-location-arrow"></i>Naver 導航</a>
-                    </div>
-                    <div class="spot-name">東門傳統市場（小吃狂歡與伴手禮）</div>
-                    <div class="food-item">
-                        <div class="food-item-title"><span>第四餐 · 晚餐</span>傳統老店：韓式海鮮純豆腐鍋 🍲</div>
-                        <div class="baby-food-box"><i class="fa-solid fa-baby"></i> 寶寶吃：豆腐鍋點「白湯（不辣）」，裡面的嫩豆腐入口即化，寶寶吃得超高興</div>
-                    </div>
-                </div>
-
-                <div class="transit-node">
-                    <span class="transit-badge" style="background-color: #FFF3E0; color: #E65100;"><i class="fa-solid fa-gas-pump"></i> 18:30 - 19:30 開車前往加油站加滿油</span>
-                </div>
-
-                <div class="spot-card car-card">
-                    <div class="card-meta">
-                        <span class="time-badge car-badge-time"><i class="fa-solid fa-flag-checkered"></i> 19:30 - 20:30</span>
-                        <a class="nav-button" style="background-color: var(--car-blue);" href="https://map.naver.com/v5/search/제주공항+롯데렌터카" target="_blank"><i class="fa-solid fa-location-arrow"></i>還車導航</a>
-                    </div>
-                    <div class="spot-name">Lotte Rent-a-Car 20:30 前準時還車</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="footer">
-        DASHBOARD BY GEMINI · v13.0 🚀 吃貨父母圓夢自駕版 🍊
-    </div>
-
-    <script>
-        function switchDash(dayNum, event) {
-            const sections = document.querySelectorAll('.day-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            document.getElementById('dash' + dayNum).classList.add('active');
-            if (event && event.target) event.target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+                        <span class="time-badge market-badge-time"><i class="fa-solid fa-store"></i> 20:15 - 21:40</span>
+                        <a class="nav-button" style="background-color: var(--market-teal);" href="
